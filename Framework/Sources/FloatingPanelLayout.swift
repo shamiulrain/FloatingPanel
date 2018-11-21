@@ -215,6 +215,7 @@ class FloatingPanelLayoutAdapter {
     // The method is separated from prepareLayout(to:) for the rotation support
     // It must be called in FloatingPanelController.traitCollectionDidChange(_:)
     func updateHeight() {
+        guard let vc = vc else { return }
         defer {
             UIView.performWithoutAnimation {
                 surfaceView.superview!.layoutIfNeeded()
@@ -226,7 +227,7 @@ class FloatingPanelLayoutAdapter {
         // of `vc` are relative values. For example, a view controller in
         // Navigation controller's safe area insets and frame can be changed whether
         // the navigation bar is translucent or not.
-        let height = self.vc.view.bounds.height - (safeAreaInsets.top + fullInset)
+        let height = vc.view.bounds.height - (safeAreaInsets.top + fullInset)
         heightConstraints = [
             surfaceView.heightAnchor.constraint(equalToConstant: height)
         ]
