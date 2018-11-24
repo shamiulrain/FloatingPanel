@@ -93,11 +93,7 @@ class FloatingPanelLayoutAdapter {
     private weak var surfaceView: FloatingPanelSurfaceView!
     private weak var backdropView: FloatingPanelBackdropView!
 
-    var layout: FloatingPanelLayout {
-        didSet {
-            checkLayoutConsistance()
-        }
-    }
+    var layout: FloatingPanelLayout
 
     var safeAreaInsets: UIEdgeInsets = .zero {
         didSet {

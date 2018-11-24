@@ -216,6 +216,7 @@ public class FloatingPanelController: UIViewController, UIScrollViewDelegate, UI
 
     private func updateLayout(for traitCollection: UITraitCollection) {
         floatingPanel.layoutAdapter.layout = fetchLayout(for: traitCollection)
+        floatingPanel.layoutAdapter.checkLayoutConsistance()
         floatingPanel.layoutAdapter.prepareLayout(in: self)
         floatingPanel.layoutAdapter.activateLayout(of: floatingPanel.state)
     }
